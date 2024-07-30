@@ -1,4 +1,4 @@
-FROM golang:1.22 as base
+FROM golang:1.22 AS base
 
 WORKDIR /app
 
@@ -10,6 +10,7 @@ COPY . .
 
 RUN go build -o uday .
 
+RUN mkdir -p /app/static
 #  Final stage - Distroless image
 FROM gcr.io/distroless/base
 
